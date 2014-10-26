@@ -1,0 +1,11 @@
+{
+  "name": "jquery.zoomz",
+  "version": "0.1.0",
+  "description": "jQuery plugin to magnify or zoom in on image(s)",
+  "author": "Ben Cooling",
+  "license": "MIT",
+  "devDependencies": {
+    "jquery": "latest",
+    "jasmine": "^2.0.1"
+  }
+}

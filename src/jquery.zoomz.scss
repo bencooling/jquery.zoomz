@@ -1,0 +1,26 @@
+.zoomz {
+  overflow:hidden;
+  position:relative;
+  display:inline-block;
+  font-size: 0px;
+  img {
+    display:block;
+  }
+  .target-wrap {
+    position:relative;
+    display:inline-block;
+  }
+  .target {
+    position:absolute;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  &.hover .target{
+    opacity:1;
+  }
+}
+.zoomz-ready {
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in;
+}
