@@ -1,27 +1,25 @@
 # jquery.zoomz
 
-jQuery plugin to magnify or zoom in on image(s)
+jQuery plugin to magnify or zoom in on an image(s).
+Supports both mobile & desktop.
 
-TODO
-Add gulp task for minimising css + js, browsersync for test-runner.html
-unit test in browser than look at automation
-look at debounce?
-cross browser
-Add gulp file to compress
+**lighweight**
 
-**lighweight** 
-- js: only x.xk compressed
-- css: optional and only x.xk compressed
+- js: Only 1kb compressed
+- css: optional & only <1kb compressed
 
 **flexible**
+
 - zoom over
 - zoom outside image (thumbnail)
 
 **compatabile**
+
 - ie8 and up
 - modern browsers
 
 **modular**
+
 - install via bower dependency manager
 - distributed with source scss & js files
 
@@ -29,6 +27,7 @@ Add gulp file to compress
 
 - Wrap an image with `div.zoomz`
 - Apply a `data-zoomz` attribute to the image with a value of either:
+
   1. the src of a larger version of the image (zoom over)
   2. id of a `.target` image (zoom outside, act as thumbnail)
 
@@ -50,14 +49,23 @@ Add gulp file to compress
 
 **Markup: Zoom outside regular image (Behaves as thumbnail)**
 
-    <img data-zoomz="id-of-target" src="path/to/source.jpg">
+    <img data-zoomz="target-id" src="path/to/source.jpg">
     ...
     <div class="zoomz">
-      <img class="target" id="id-of-target" src="path/to/target.jpg">
+      <img class="target" id="target-id" src="path/to/target.jpg">
     </div>
-
 
 ## Testing
 
-    node_modules/.bin/qunit -t tests/tests -c src/HelloWorld -d node_modules/jquery/dist/jquery assets/repo/jquery.zoomz/src/jquery.zoomz
+**Command line**
 
+    gulp qunit
+
+**Browser**
+
+    gulp serve:qunit
+
+## TODO
+
+1. unit test in browser than look at automation
+2. cross browser testing

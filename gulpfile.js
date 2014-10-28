@@ -1,9 +1,12 @@
 "use strict";
 
-var gulp  = require('gulp')
-  , qunit = require('gulp-qunit')
-  , sass  = require('gulp-sass')
-  , browserSync  = require('browser-sync')
+var gulp        = require('gulp')
+  , qunit       = require('gulp-qunit')
+  , sass        = require('gulp-sass')
+  , uglify      = require('gulp-uglify')
+  , minifyCSS   = require('gulp-minify-css')
+  , browserSync = require('browser-sync')
+  , rename      = require('gulp-rename')
   ;
 
 // run qunit
@@ -16,6 +19,22 @@ gulp.task('qunit', function() {
 gulp.task('sass', function() {
   gulp.src('src/jquery.zoomz.scss')
     .pipe(sass())
+    .pipe(gulp.dest('src'));
+});
+
+// minify js
+gulp.task('minify-js', function() {
+  return gulp.src('src/jquery.zoomz.js')
+    .pipe(uglify())
+    .pipe(rename('jquery.zoomz.min.js'))
+    .pipe(gulp.dest('src'));
+});
+
+// minify css
+gulp.task('minify-css', function() {
+  return gulp.src('src/jquery.zoomz.css')
+    .pipe(minifyCSS({keepBreaks:true}))
+    .pipe(rename('jquery.zoomz.min.css'))
     .pipe(gulp.dest('src'));
 });
 
@@ -37,8 +56,9 @@ gulp.task('serve:qunit', ['sass'], function(){
 });
 
 gulp.task('default', ['qunit'], function() {
-  gulp.watch();
-
   // run tests on src change
   gulp.watch(["src/**/*.*", "tests/tests.js"], ['qunit']);
+});
+
+gulp.task('minify', ['minify-css', 'minify-js'], function() {
 });
