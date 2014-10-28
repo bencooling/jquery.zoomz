@@ -33,5 +33,9 @@ QUnit.test('mouseover source reveals target', function () {
   QUnit.equal(o, 1, "mouseover source reveals target");
 });
 
+// Test for incorrect data-zoomz value
+// Test for coordinates @see qunitjs.com:Testing User Actions
 // x:100,width{source:150,zoomz:300,target:900} = l:300?
 // x:100,width{source:150,zoomz:150,target:300} = l:100?
+
+
