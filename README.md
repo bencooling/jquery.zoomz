@@ -1,7 +1,11 @@
 # jquery.zoomz
 
 jQuery plugin to magnify or zoom in on an image(s).
-Supports both mobile & desktop.
+
+**features**
+
+- Supports both mobile touch & desktop mouse events.
+- Supports requirejs, npm or as a stand alone jQuery plugin.
 
 **lighweight**
 
