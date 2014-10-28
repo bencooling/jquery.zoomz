@@ -97,6 +97,10 @@
           , x  = eventTouches.pageX - mouseableLeft
           , y  = eventTouches.pageY - mouseableTop
           ;
+          // ios can touchmove off element
+          x = (x<0) ? 0 : (x>sourceWidth) ? sourceWidth : x;
+          y  = (y<0) ? 0 : (y>sourceHeight) ? sourceHeight : y;
+
           e.preventDefault();
           $zoomz.addClass('hover');
           $target.css({
