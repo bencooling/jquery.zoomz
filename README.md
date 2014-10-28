@@ -33,13 +33,20 @@ Supports both mobile & desktop.
 
 ## Example
 
-**css**
+**CSS**
 
     <link rel="stylesheet" href="jquery.zoomz.css" />
 
 **Javascript**
 
-    $('[data-zoomz]').zoomz();
+    <script src="src/jquery.zoomz.js"></script>
+    <script>
+      (function($){
+        $(window).load(function(){
+          $('[data-zoomz]').zoomz();
+        });
+      })(jQuery);
+    </script>
 
 **Markup: Zoom over regular image**
 
