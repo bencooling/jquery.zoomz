@@ -1,10 +1,13 @@
 # jquery.zoomz
 
-TODO
-unit test
-debounce
-
 jQuery plugin to magnify or zoom in on image(s)
+
+TODO
+Add gulp task for minimising css + js, browsersync for test-runner.html
+unit test in browser than look at automation
+look at debounce?
+cross browser
+Add gulp file to compress
 
 **lighweight** 
 - js: only x.xk compressed
@@ -56,5 +59,5 @@ jQuery plugin to magnify or zoom in on image(s)
 
 ## Testing
 
-    node_modules/.bin/qunit -t tests/tests -c src/HelloWorld -d node_modules/jquery/dist/jquery
+    node_modules/.bin/qunit -t tests/tests -c src/HelloWorld -d node_modules/jquery/dist/jquery assets/repo/jquery.zoomz/src/jquery.zoomz
 

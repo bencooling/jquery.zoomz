@@ -5,7 +5,9 @@
   "author": "Ben Cooling",
   "license": "MIT",
   "devDependencies": {
-    "jquery": "latest",
-    "jasmine": "^2.0.1"
+    "gulp": "^3.8.9",
+    "gulp-qunit": "^0.3.3",
+    "gulp-sass": "^1.2.0",
+    "browser-sync": "^1.6.0"
   }
 }

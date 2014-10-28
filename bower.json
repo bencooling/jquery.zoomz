@@ -1,0 +1,22 @@
+{
+  "name": "jquery.zoomz",
+  "version": "0.0.0",
+  "authors": [
+    "Ben Cooling <office@bcooling.com.au>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "qunit": "~1.15.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1"
+  }
+}
