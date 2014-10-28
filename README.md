@@ -74,5 +74,5 @@ Supports both mobile & desktop.
 
 ## TODO
 
-1. unit test in browser than look at automation
+1. Add additional unit tests
 2. cross browser testing
