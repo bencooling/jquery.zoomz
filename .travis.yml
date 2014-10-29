@@ -1,0 +1,18 @@
+# Required to run your project under the correct environment.
+language: node_js
+
+# Versions of nodejs you want your project run with.
+node_js:
+  - 0.10
+
+# Commands to be run before your environment runs.
+before_script:
+  - npm install --global gulp
+
+# Commands you want to run that will verify your build.
+script: gulp qunit
+
+# Customize when the notification emails are sent.
+notifications:
+  on_success: never
+  on_failure: always
