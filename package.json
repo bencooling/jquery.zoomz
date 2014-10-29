@@ -4,6 +4,10 @@
   "description": "jQuery plugin to magnify or zoom in on image(s)",
   "author": "Ben Cooling",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bencooling/jquery.zoomz"
+  },
   "devDependencies": {
     "browser-sync": "^1.6.1",
     "gulp": "^3.8.9",
