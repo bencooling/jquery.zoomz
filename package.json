@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git://github.com/bencooling/jquery.zoomz"
   },
+  "scripts": {
+    "test": "gulp qunit --verbose"
+  },
   "devDependencies": {
     "browser-sync": "^1.6.1",
     "gulp": "^3.8.9",
