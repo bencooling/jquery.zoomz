@@ -1,5 +1,7 @@
 # jquery.zoomz
 
+[![Build Status](https://travis-ci.org/bencooling/jquery.zoomz.svg?branch=master)](https://travis-ci.org/bencooling/jquery.zoomz)
+
 jQuery plugin to magnify or zoom in on an image(s).
 
 **features**
