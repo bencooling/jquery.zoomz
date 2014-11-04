@@ -22,6 +22,12 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('src'));
 });
 
+gulp.task('sass:index', function() {
+  gulp.src('assets/page.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('assets'));
+});
+
 // minify js
 gulp.task('minify-js', function() {
   return gulp.src('src/jquery.zoomz.js')
@@ -37,13 +43,18 @@ gulp.task('minify-css', function() {
     .pipe(rename('jquery.zoomz.min.css'))
     .pipe(gulp.dest('src'));
 });
+gulp.task('minify-css:index', ['sass:index'], function() {
+  return gulp.src('assets/page.css')
+    .pipe(minifyCSS({keepBreaks:true}))
+    .pipe(gulp.dest('assets'));
+});
 
 // display qunit in browser
-gulp.task('serve:demo', ['sass'], function(){
-  browserSync(["demo.html", "src/jquery.zoomz.js"], {
+gulp.task('serve:index', ['minify-css:index'], function(){
+  browserSync(["index.html", "src/jquery.zoomz.js"], {
     server: { 
       baseDir: "./",
-      index: "demo.html"
+      index: "index.html"
     }});
 });
 
