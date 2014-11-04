@@ -50,7 +50,7 @@ gulp.task('serve:demo', ['sass'], function(){
 gulp.task('serve:qunit', ['sass'], function(){
   browserSync({
     server: { 
-      baseDir: "tests",
+      baseDir: ["./tests", "./"],
       index: "test-runner.html"
     }});
 });

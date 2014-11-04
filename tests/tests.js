@@ -7,7 +7,7 @@ var s = 'https://farm9.staticflickr.com/8332/8120689640_87dc7783fd_q.jpg'
   , $source, $target, $zoomz
   ;
 
-module('data-zoomz is src', {
+module('desktop', {
   setup: function () {
     $('body').append(el);
     $source = $('[data-zoomz]').zoomz();
@@ -18,20 +18,36 @@ module('data-zoomz is src', {
     $zoomz.remove();
   }
 });
-
-QUnit.test('source has target', function () {
-  QUnit.equal($target.length, 1, 'source has target');
+QUnit.test('target injected into DOM', function () {
+  QUnit.equal($target.length, 1, '$target.length is 1');
 });
-QUnit.test('target src is data zoomz property', function () {
+QUnit.test('target src correct', function () {
   QUnit.equal($target.attr('src'), $source.data('zoomz'), 
-    'Injected image element src is zoomz data attribute');
+    '$target src is $source data zoomz attribute');
 });
 QUnit.test('mouseover source reveals target', function () {
   var o; 
   $zoomz.addClass('hover');
   o = $target.css('opacity');
-  QUnit.equal(o, 1, "mouseover source reveals target");
+  QUnit.equal(o, 1, "opacity of $target is 1 when hover applied to $zoomz");
 });
+
+// QUnit.test('mouseover source reveals target', function () {
+//   var o
+//     , e = $.Event('mousemove')
+//     ;
+//   e.pageX = 100;
+//   e.pageY = 300;
+//   setTimeout(function(){
+//     $zoomz.trigger(e);
+//     setTimeout(function(){
+//       // console.log($target.css('top')); // BEN: qunit is messing with the offset values
+//       QUnit.equal($target.css('opacity'), 1, "mouseover source reveals target");
+//       QUnit.start();
+//     }, 1000);
+//   }, 1000);
+//   QUnit.stop();
+// });
 
 // Test for incorrect data-zoomz value
 // Test for coordinates @see qunitjs.com:Testing User Actions
