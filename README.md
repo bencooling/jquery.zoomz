@@ -81,4 +81,6 @@ jQuery plugin to magnify or zoom in on an image(s).
 ## TODO
 
 1. Add additional unit tests
-2. cross browser testing
+1. Cross browser testing
+1. Add configuration object for target and caching
+1. Add option for zooming in

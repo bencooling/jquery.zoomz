@@ -3,39 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <title>jquery.zoomz</title>
-  <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="src/jquery.zoomz.css">
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="dist/jquery.zoomz.css">
+  <link rel="stylesheet" type="text/css" href="assets/style.css">
   <script src="assets/vendor/jquery/dist/jquery.js"></script>
-  <script src="src/jquery.zoomz.js"></script>
+  <script src="dist/jquery.zoomz.js"></script>
+  <!-- <script src="assets/vendor/highlight/highlight.pack.js"></script> -->
   <script>
     "use strict";
     (function($){
       $(window).load(function(){
-        $('[data-zoomz]').zoomz();
+        $('[data-zoomz]').zoomz({
+          cache: false
+        });
       });
+      // hljs.initHighlightingOnLoad();
     })(jQuery);
   </script>
 </head>
 <body>
-  <h1>jquery.zoomz</h1>
-  <h2>data-zoomz as image src</h2>
-  <div class="zoomz">
-    <img src="https://farm9.staticflickr.com/8332/8120689640_87dc7783fd_q.jpg" data-zoomz="https://farm9.staticflickr.com/8332/8120689640_87dc7783fd_z.jpg" />
+  <div class="head">
+    <div class="container">
+      <h1>jquery.zoomz</h1>
+      <div class="inner">
+        <hr />
+        <h2>mobile friendly jQuery plugin to <strong>magnify or zoom</strong> in on image(s)</h2>
+        <a class="download" href="">Download</a>
+        <a class="github" href="" target="_blank">Github</a>
+      </div>    
+    </div>
   </div>
+  <div class="credit container">
+    <div class="inner">
+      <small>Photo credit:  <a target="_blank" href="https://www.flickr.com/photos/maddogphotography/8120689640">Alone in the Wilderness by Matto AKA Maddogmat</a></small>
+    </div>
+  </div>
+  <div class="examples container">
+    <div class="inner">
+      <h3>examples</h3>
+      <ul class="slides">
+        <li class="slide">
+          <div class="left">
+            <h4>zoom in over image</h4>
+  <pre><code>var foo = 'bah';
+  </code></pre>
+  <pre><code>&lt;div class="zoomz">
+  &lt;img src="http://bit.ly/1vHaWiG" data-zoomz="http://bit.ly/10tO0Ln" />
+&lt;/div>
+  </code></pre>
+          </div>
+          <div class="right">
+            <div class="zoomz">
+              <img src="http://bit.ly/1vHaWiG" data-zoomz="http://bit.ly/10tO0Ln" />
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="features container">
+    <div class="inner">
+      <h3>features</h3>
+
+    </div>
+  </div>
+<!--   <h2>data-zoomz as image src</h2>
+
   <h2>data-zoomz as image element</h2>
   <h3>Landscape</h3>
-    <img src="https://farm9.staticflickr.com/8332/8120689640_87dc7783fd_q.jpg" data-zoomz="landscape" />
+    <img src="http://bit.ly/1vHaWiG" data-zoomz="landscape" />
   <div class="zoomz" style="width:300px; height:200px; background-color:grey">
-    <img src="https://farm9.staticflickr.com/8332/8120689640_87dc7783fd_z.jpg" id ="landscape" class="target" />
+    <img src="http://bit.ly/10tO0Ln" id ="landscape" class="target" />
   </div>
   <h3>Portrait</h3>
-    <img src="https://farm9.staticflickr.com/8332/8120689640_87dc7783fd_q.jpg" data-zoomz="portrait" />
+    <img src="http://bit.ly/1vHaWiG" data-zoomz="portrait" />
   <div class="zoomz" style="width:100px; height:300px; background-color:grey">
-    <img src="https://farm9.staticflickr.com/8332/8120689640_87dc7783fd_z.jpg" id ="portrait" class="target" />
-  </div>
-  <div class="footer">
-    Alone in the Wilderness by Matto AKA Maddogmat
-    Photo credit: https://www.flickr.com/photos/maddogphotography/8120689640/
+    <img src="http://bit.ly/10tO0Ln" id ="portrait" class="target" />
+  </div> -->
+  <div class="footer container">
+    <div class="inner">
+      <p>Made by the Global Cooling Institute aka <a href="http://bcooling.com.au">Ben Cooling</a></p>
+    </div>  
   </div>
 </body>
 </html>

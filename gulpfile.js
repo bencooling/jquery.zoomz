@@ -7,58 +7,66 @@ var gulp        = require('gulp')
   , minifyCSS   = require('gulp-minify-css')
   , browserSync = require('browser-sync')
   , rename      = require('gulp-rename')
+  , rjs         = require('gulp-requirejs')
   ;
 
-// run qunit
-gulp.task('qunit', function() {
+/*
+ * tests
+ * -------------------------------------------- */
+gulp.task('qunit', function() { // run qunit
   return gulp.src('tests/test-runner.html')
     .pipe(qunit());
 });
 
-// compile scss to css
-gulp.task('sass', function() {
+/*
+ * dist directory
+ * -------------------------------------------- */
+gulp.task('copy:dist', function(){ // copy src to dist
+  gulp.src('src/jquery.zoomz.*', {base:'src'})
+    .pipe(gulp.dest('dist'));
+});
+gulp.task('sass:dist', function() { // compile scss to css
   gulp.src('src/jquery.zoomz.scss')
     .pipe(sass())
-    .pipe(gulp.dest('src'));
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('sass:index', function() {
-  gulp.src('assets/page.scss')
+/*
+ * github.io page assets 
+ * -------------------------------------------- */
+gulp.task('sass:page', function() { // compile scss to css
+  gulp.src('assets/scss/main.scss')
     .pipe(sass())
+    .pipe(rename('style.css'))
     .pipe(gulp.dest('assets'));
 });
 
-// minify js
-gulp.task('minify-js', function() {
-  return gulp.src('src/jquery.zoomz.js')
-    .pipe(uglify())
-    .pipe(rename('jquery.zoomz.min.js'))
-    .pipe(gulp.dest('src'));
+gulp.task('requirejs:page', function() {
+  rjs({
+    baseUrl: './'
+  , name: 'assets/vendor/almond/almond'
+  , include: ['assets/js/main']
+  , insertRequire: ['assets/js/main']
+  , out: 'script.js'
+  , wrap: true
+  , mainConfigFile: 'assets/js/main.js'
+  })
+  .pipe(gulp.dest('assets'));
 });
 
-// minify css
-gulp.task('minify-css', function() {
-  return gulp.src('src/jquery.zoomz.css')
-    .pipe(minifyCSS({keepBreaks:true}))
-    .pipe(rename('jquery.zoomz.min.css'))
-    .pipe(gulp.dest('src'));
-});
-gulp.task('minify-css:index', ['sass:index'], function() {
-  return gulp.src('assets/page.css')
-    .pipe(minifyCSS({keepBreaks:true}))
-    .pipe(gulp.dest('assets'));
-});
-
-// display qunit in browser
-gulp.task('serve:index', ['minify-css:index'], function(){
-  browserSync(["index.html", "src/jquery.zoomz.js"], {
+/*
+ * local webserver
+ * -------------------------------------------- */
+gulp.task('serve:page', ['sass:page', 'requirejs:page'], function(){ // display page in browser
+  browserSync(["index.html", "assets/script.js", "assets/style.css"], {
     server: { 
       baseDir: "./",
       index: "index.html"
     }});
+  gulp.watch("assets/scss/*.scss", ['copy:dist', 'sass:page']);
+  gulp.watch("src/**.*", ['copy:dist', 'requirejs:page']);
 });
-
-gulp.task('serve:qunit', ['sass'], function(){
+gulp.task('serve:qunit', ['sass'], function(){ // display qunit in browser
   browserSync({
     server: { 
       baseDir: ["./tests", "./"],
@@ -66,10 +74,10 @@ gulp.task('serve:qunit', ['sass'], function(){
     }});
 });
 
+/*
+ * tasks
+ * -------------------------------------------- */
 gulp.task('default', ['qunit'], function() {
   // run tests on src change
   gulp.watch(["src/**/*.*", "tests/tests.js"], ['qunit']);
-});
-
-gulp.task('minify', ['minify-css', 'minify-js'], function() {
 });

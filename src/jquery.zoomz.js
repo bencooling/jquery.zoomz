@@ -33,10 +33,11 @@
       , zoomzHeight
       , mouseableLeft
       , mouseableTop
+      , cachable
       ;
 
     // target is image src
-    if (target.search(/(jpg|jpeg|png|gif)$/)!==-1){
+    if (target.indexOf('#')!==-1){
       $target = $('<img class="target" />')
         .load(attachEvents)
         .attr('src', target)
@@ -45,12 +46,9 @@
     }
     // target is image id
     else if ( $('#'+target).length ) {
-      $target = $('#'+target);
+      $target = $(target);
       $mouseable = $source; // becomes $zoomz if $source inside of $zoomz
       attachEvents();
-    }
-    else {
-      throw Error('Incompatible zoomz data attribute');
     }
 
     function attachEvents(){
@@ -66,6 +64,7 @@
       $mouseable      = (typeof $mouseable==='undefined') ? $zoomz : $mouseable;
       mouseableLeft   = $mouseable.offset().left;
       mouseableTop    = $mouseable.offset().top;
+      cachable        = settings.cache;
 
       $mouseable
         .not('.zoomz-ready') // Only attach events once
@@ -83,8 +82,8 @@
       }
 
       function onmousemove(e){
-        var x  = e.pageX - mouseableLeft
-          , y  = e.pageY - mouseableTop
+        var x  = e.pageX - (cachable) ? mouseableLeft : $mouseable.offset().left
+          , y  = e.pageY - (cachable) ? mouseableTop : $mouseable.offset().top
           ;
         $zoomz.addClass('hover');
         $target.css({
@@ -94,8 +93,8 @@
       }
       function ontouchmove(e){
         var eventTouches = e.originalEvent.touches[0]
-          , x  = eventTouches.pageX - mouseableLeft
-          , y  = eventTouches.pageY - mouseableTop
+          , x  = eventTouches.pageX - (cachable) ? mouseableLeft : $mouseable.offset().left
+          , y  = eventTouches.pageY - (cachable) ? mouseableTop : $mouseable.offset().top
           ;
           // ios can touchmove off element
           x = (x<0) ? 0 : (x>sourceWidth) ? sourceWidth : x;
@@ -124,8 +123,9 @@
   // jQuery plugin
   jQuery.fn.zoomz = function(options){
     var defaults = {
-          touchmove : true
-        , mousemove : true
+          touch : true // attach touchmove
+        , mouse : true // attach mousemove
+        , cache : true // cache image position for smoother
         }
       , settings = $.extend(options, defaults);
     $(this).each(function(){
