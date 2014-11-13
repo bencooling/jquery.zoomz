@@ -13,6 +13,12 @@
     "dist/jquery.zoomz.css",
     "dist/jquery.zoomz.js"
   ],
+  "ignore": [
+    "assets/*",
+    "src/*",
+    "tests/*",
+    "./.*"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",

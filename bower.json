@@ -18,11 +18,8 @@
     "qunit": "~1.15.0",
     "almond": "latest",
     "requirejs": "latest",
-    "jquery.panez": "bencooling/jquery.panez",
     "bourbon": "latest",
     "neat": "1.5",
-    "highlight-js": "~7.0.1",
-    "highlight": "~7.0.1",
     "slick.js": "~1.3.13"
   }
 }
