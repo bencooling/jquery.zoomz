@@ -30,8 +30,5 @@
   }
 }
 .zoomz-ready {
-  cursor: -webkit-zoom-in, crosshair; // TODO: Add prefixr to gulp
-  cursor: -moz-zoom-in, crosshair;
-  cursor: -ms-zoom-in, crosshair;
-  cursor: zoom-in, crosshair;
+  cursor: crosshair;
 }

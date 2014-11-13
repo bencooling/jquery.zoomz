@@ -9,9 +9,9 @@
   ],
   "author": "Ben Cooling",
   "main": [
-    "src/jquery.zoomz.scss",
-    "src/jquery.zoomz.css",
-    "src/jquery.zoomz.js"
+    "dist/jquery.zoomz.scss",
+    "dist/jquery.zoomz.css",
+    "dist/jquery.zoomz.js"
   ],
   "license": "MIT",
   "repository": {
