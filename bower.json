@@ -22,6 +22,7 @@
     "bourbon": "latest",
     "neat": "1.5",
     "highlight-js": "~7.0.1",
-    "highlight": "~7.0.1"
+    "highlight": "~7.0.1",
+    "slick.js": "~1.3.13"
   }
 }

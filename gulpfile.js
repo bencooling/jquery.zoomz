@@ -58,18 +58,19 @@ gulp.task('requirejs:page', function() {
  * local webserver
  * -------------------------------------------- */
 gulp.task('serve:page', ['sass:page', 'requirejs:page'], function(){ // display page in browser
-  browserSync(["index.html", "assets/script.js", "assets/style.css"], {
+  browserSync(['index.html', 'assets/script.js', 'assets/style.css'], {
     server: { 
-      baseDir: "./",
-      index: "index.html"
+      baseDir: './',
+      index: 'index.html'
     }});
-  gulp.watch("assets/scss/*.scss", ['copy:dist', 'sass:page']);
-  gulp.watch("src/**.*", ['copy:dist', 'requirejs:page']);
+  gulp.watch('assets/scss/*.scss', ['copy:dist', 'sass:page']);
+  gulp.watch('src/**.*', ['copy:dist', 'sass:dist', 'requirejs:page']);
+  gulp.watch('assets/js/*.js', ['requirejs:page']);
 });
 gulp.task('serve:qunit', ['sass'], function(){ // display qunit in browser
   browserSync({
-    server: { 
-      baseDir: ["./tests", "./"],
+    server: {
+      baseDir: ['./tests', './'],
       index: "test-runner.html"
     }});
 });

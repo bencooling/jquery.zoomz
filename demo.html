@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>jquery.zoomz</title>
+  <link href='http://fonts.googleapis.com/css?family=Indie+Flower' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="dist/jquery.zoomz.css">
+  <script src="assets/vendor/jquery/dist/jquery.js"></script>
+  <script src="dist/jquery.zoomz.js"></script>
+  <script>
+    "use strict";
+    (function($){
+      $(window).load(function(){
+        $('[data-zoomz]').zoomz();
+      });
+    })(jQuery);
+  </script>
+</head>
+<body>
+  <h1>jquery.zoomz</h1>
+  <h2>data-zoomz as image src</h2>
+  <div class="zoomz">
+    <img src="http://bit.ly/1vHaWiG" data-zoomz="http://bit.ly/10tO0Ln" />
+  </div>
+  <h2>data-zoomz as image element</h2>
+  <h3>Landscape</h3>
+    <img src="http://bit.ly/1vHaWiG" data-zoomz="#landscape" />
+  <div class="zoomz" style="width:300px; height:200px; background-color:grey">
+    <img src="http://bit.ly/10tO0Ln" id ="landscape" class="target" />
+  </div>
+  <h3>Portrait</h3>
+    <img src="http://bit.ly/1vHaWiG" data-zoomz="#portrait" />
+  <div class="zoomz" style="width:100px; height:300px; background-color:grey">
+    <img src="http://bit.ly/10tO0Ln" id ="portrait" class="target" />
+  </div>
+  <div class="footer">
+    <p>Photo credit:  <a href="https://www.flickr.com/photos/maddogphotography/8120689640">Alone in the Wilderness by Matto AKA Maddogmat</a></p>
+  </div>
+</body>
+</html>

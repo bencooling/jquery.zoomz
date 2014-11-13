@@ -1,0 +1,29 @@
+.zoomz {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+  font-size: 0px; }
+  .zoomz img {
+    display: block; }
+  .zoomz .target-wrap {
+    position: relative;
+    display: inline-block; }
+  .zoomz .target {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.5s; }
+  .zoomz.zoomz-init {
+    z-index: -1; }
+  .zoomz.hover {
+    display: block;
+    z-index: 1; }
+    .zoomz.hover .target {
+      opacity: 1; }
+  .zoomz.zoomz-ready {
+    display: block; }
+
+.zoomz-ready {
+  cursor: -webkit-zoom-in, crosshair;
+  cursor: -moz-zoom-in, crosshair;
+  cursor: -ms-zoom-in, crosshair;
+  cursor: zoom-in, crosshair; }

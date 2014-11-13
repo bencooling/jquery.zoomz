@@ -6,84 +6,100 @@
   <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="dist/jquery.zoomz.css">
   <link rel="stylesheet" type="text/css" href="assets/style.css">
-  <script src="assets/vendor/jquery/dist/jquery.js"></script>
-  <script src="dist/jquery.zoomz.js"></script>
-  <!-- <script src="assets/vendor/highlight/highlight.pack.js"></script> -->
-  <script>
-    "use strict";
-    (function($){
-      $(window).load(function(){
-        $('[data-zoomz]').zoomz({
-          cache: false
-        });
-      });
-      // hljs.initHighlightingOnLoad();
-    })(jQuery);
-  </script>
+  <script src="assets/script.js"></script>
 </head>
 <body>
-  <div class="head">
+  <div class="header">
     <div class="container">
       <h1>jquery.zoomz</h1>
       <div class="inner">
         <hr />
-        <h2>mobile friendly jQuery plugin to <strong>magnify or zoom</strong> in on image(s)</h2>
-        <a class="download" href="">Download</a>
-        <a class="github" href="" target="_blank">Github</a>
+        <h2>lightweight, mobile friendly jQuery plugin to <strong>magnify or zoom</strong> in on image(s)</h2>
+        <a class="download" href="https://github.com/bencooling/jquery.zoomz/archive/master.zip">Download</a>
+        <a class="github" href="https://github.com/bencooling/jquery.zoomz" target="_blank">Github</a>
       </div>    
     </div>
   </div>
-  <div class="credit container">
-    <div class="inner">
-      <small>Photo credit:  <a target="_blank" href="https://www.flickr.com/photos/maddogphotography/8120689640">Alone in the Wilderness by Matto AKA Maddogmat</a></small>
+  <div class="body">
+    <div class="credit container">
+      <div class="inner">
+        <small>Photo credit:  <a target="_blank" href="https://www.flickr.com/photos/maddogphotography/8120689640">Alone in the Wilderness by Matto AKA Maddogmat</a></small>
+      </div>
     </div>
-  </div>
-  <div class="examples container">
-    <div class="inner">
-      <h3>examples</h3>
-      <ul class="slides">
-        <li class="slide">
-          <div class="left">
-            <h4>zoom in over image</h4>
-  <pre><code>var foo = 'bah';
-  </code></pre>
-  <pre><code>&lt;div class="zoomz">
+    <div class="examples container">
+      <div class="inner">
+        <h3>examples</h3>
+        <div class="slides">
+          <div class="slide">
+            <div class="left">
+              <h4>zoom in over image</h4>
+    <h6>markup</h6>
+    <textarea class="code" onClick="this.setSelectionRange(0, this.value.length)">&lt;div class="zoomz">
   &lt;img src="http://bit.ly/1vHaWiG" data-zoomz="http://bit.ly/10tO0Ln" />
-&lt;/div>
-  </code></pre>
-          </div>
-          <div class="right">
-            <div class="zoomz">
-              <img src="http://bit.ly/1vHaWiG" data-zoomz="http://bit.ly/10tO0Ln" />
+&lt;/div></textarea>
+
+              <h6>javascript</h6>
+    <textarea class="js code" onClick="this.setSelectionRange(0, this.value.length)">$(window).load(function(){
+  $('[data-zoomz]').zoomz();
+});</textarea>
+            </div>
+            <div class="right">
+              <div class="zoomz">
+                <img src="assets/images/8120689640_87dc7783fd_m.jpg" data-zoomz="assets/images/8120689640_87dc7783fd_z-2.jpg" />
+              </div>
             </div>
           </div>
-        </li>
-      </ul>
+          <div class="slide">
+            <div class="left">
+              <h4>zoom in with thumbnail</h4>
+    <h6>markup</h6>
+    <textarea class="code html" onClick="this.setSelectionRange(0, this.value.length)">&lt;img src="http://bit.ly/1vHaWiG" data-zoomz="#foo" />
+&lt;div class="zoomz">
+  &lt;img src="http://bit.ly/10tO0Ln" id="foo" class="target" />
+&lt;/div></textarea>
+              <h6>javascript</h6>
+    <textarea class="js code" onClick="this.setSelectionRange(0, this.value.length)">$(window).load(function(){
+  $('[data-zoomz]').zoomz();
+});</textarea>
+              <div class="zoomz">
+                <img src="assets/images/8120689640_87dc7783fd_b.jpg" id="full" class="target" />
+              </div>
+            </div>
+            <div class="right">
+              <img class="source" src="assets/images/8120689640_87dc7783fd_m.jpg" data-zoomz="#full" />
+            </div>
+          </div><!-- /slide -->
+        </div><!-- /slides -->
+      </div>
     </div>
-  </div>
-  <div class="features container">
-    <div class="inner">
-      <h3>features</h3>
-
+    <div class="features container">
+      <div class="inner">
+        <h3>features</h3>
+        <ul>
+          <li>mobile friendly</li>
+          <li>modern browsers + ie8 &amp; up</li>
+          <li>1kb compressed</li>
+        </ul>
+      </div>
     </div>
-  </div>
-<!--   <h2>data-zoomz as image src</h2>
+  <!--   <h2>data-zoomz as image src</h2>
 
-  <h2>data-zoomz as image element</h2>
-  <h3>Landscape</h3>
-    <img src="http://bit.ly/1vHaWiG" data-zoomz="landscape" />
-  <div class="zoomz" style="width:300px; height:200px; background-color:grey">
-    <img src="http://bit.ly/10tO0Ln" id ="landscape" class="target" />
-  </div>
-  <h3>Portrait</h3>
-    <img src="http://bit.ly/1vHaWiG" data-zoomz="portrait" />
-  <div class="zoomz" style="width:100px; height:300px; background-color:grey">
-    <img src="http://bit.ly/10tO0Ln" id ="portrait" class="target" />
-  </div> -->
-  <div class="footer container">
-    <div class="inner">
-      <p>Made by the Global Cooling Institute aka <a href="http://bcooling.com.au">Ben Cooling</a></p>
-    </div>  
+    <h2>data-zoomz as image element</h2>
+    <h3>Landscape</h3>
+      <img src="http://bit.ly/1vHaWiG" data-zoomz="landscape" />
+    <div class="zoomz" style="width:300px; height:200px; background-color:grey">
+      <img src="http://bit.ly/10tO0Ln" id ="landscape" class="target" />
+    </div>
+    <h3>Portrait</h3>
+      <img src="http://bit.ly/1vHaWiG" data-zoomz="portrait" />
+    <div class="zoomz" style="width:100px; height:300px; background-color:grey">
+      <img src="http://bit.ly/10tO0Ln" id ="portrait" class="target" />
+    </div> -->
+    <div class="footer container">
+      <div class="inner">
+        <p>Made by the Global Cooling Institute aka <a target="_blank" href="http://bcooling.com.au">Ben Cooling</a></p>
+      </div>  
+    </div>
   </div>
 </body>
 </html>
