@@ -6,12 +6,13 @@
   ],
   "license": "MIT",
   "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "assets/vendor",
-    "test",
-    "tests"
+    ".*",
+    "assets",
+    "src",
+    "tests",
+    "*.md",
+    "*.html",
+    "gulpfile.js"
   ],
   "devDependencies": {
     "jquery": "~2.1.1",
