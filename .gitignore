@@ -1,4 +1,6 @@
 node_modules
-assets
+assets/js
+assets/scss
+assets/vendor
 npm-debug.log
 design.sketch
