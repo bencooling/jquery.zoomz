@@ -50,7 +50,6 @@
       $target = $(target);
       $mouseable = $source; // becomes $zoomz if $source inside of $zoomz
       attachEvents();
-      console.log('a', $source);
       $source.addClass('source-init');
       $zoomz.addClass('zoomz-init');
     }
@@ -70,7 +69,6 @@
       // mouseableLeft   = $mouseable.offset().left;
       // mouseableTop    = $mouseable.offset().top;
 
-      console.log('b', $zoomz);
       $mouseable
         .not('.zoomz-ready') // Only attach events once
         .addClass('zoomz-ready');
@@ -85,14 +83,11 @@
           .on('touchmove', ontouchmove)
           .on('touchend', zoomEnd);
       }
-      console.log('c', $zoomz);
       function onmousemove(e){
         var x  = e.pageX - $mouseable.offset().left
           , y  = e.pageY - $mouseable.offset().top
           ;
         $zoomz.addClass('hover');
-        console.log('sourceWidth', sourceWidth);
-        console.log('zoomzWidthDiff', zoomzWidthDiff);
         $target.css({
           'left' : '-' + convert(x, sourceWidth, zoomzWidthDiff) + 'px'
         , 'top'  : '-' + convert(y, sourceHeight, zoomzHeightDiff) + 'px'
@@ -138,7 +133,6 @@
         , api   = new init($el, settings)
         ;
       $el.data('api', api);
-      console.log('$el', $el);
     });
     return this;
   };

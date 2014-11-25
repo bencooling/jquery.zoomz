@@ -322,6 +322,15 @@ body {
     text-align: center; }
     .header .inner:last-child {
       margin-right: 0; }
+    @media screen and (max-width: 1024px)  {
+      .header .inner {
+        float: left;
+        display: block;
+        margin-right: 1.75788%;
+        width: 74.56053%;
+        margin-left: 12.71973%; }
+        .header .inner:last-child {
+          margin-right: 0; } }
   .header hr {
     background: #F2E0B2;
     border: 0px;
